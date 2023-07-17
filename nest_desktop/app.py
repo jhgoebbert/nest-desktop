@@ -22,6 +22,8 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         host = sys.argv[1]
         port = sys.argv[2]
+        token = sys.argv[3]
+        os.environ['NEST_DESKTOP_TOKEN'] = token
         run(host, int(port))
     else:
         run()

@@ -28,11 +28,17 @@ Vue.config.productionTip = false;
  * Mount application.
  */
 const mountApp = () => {
-  new Vue({
-    router,
-    vuetify,
-    render: h => h(App),
-  }).$mount('#app');
+  const accessToken = window.localStorage.getItem('accessToken');
+  if (!accessToken || accessToken !== process.env.NEST_DESKTOP_TOKEN) {
+    // Redirect to an unauthorized page or display an error message
+    alert('Unauthorized access!');
+  } else {
+    new Vue({
+      router,
+      vuetify,
+      render: h => h(App),
+    }).$mount('#app');
+  }
 };
 
 if (process.env.IS_ELECTRON) {

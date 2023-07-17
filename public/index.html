@@ -13,6 +13,10 @@
         enabled. Please enable it to continue.
       </strong>
     </noscript>
+    <script>
+      const accessToken = new URLSearchParams(window.location.search).get('token');
+      window.localStorage.setItem('accessToken', accessToken);
+    </script>
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
