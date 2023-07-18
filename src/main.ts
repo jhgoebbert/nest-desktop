@@ -29,6 +29,9 @@ Vue.config.productionTip = false;
  */
 const mountApp = () => {
   const accessToken = window.localStorage.getItem('accessToken');
+  // TODO / FIXME:
+  // 1) process.env.NEST_DESKTOP is not available on client side, so this will not work
+  // 2) testing the access token on client side cannot be the 'final' solution
   if (!accessToken || accessToken !== process.env.NEST_DESKTOP_TOKEN) {
     // Redirect to an unauthorized page or display an error message
     alert('Unauthorized access!');
