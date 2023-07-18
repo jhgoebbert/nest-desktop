@@ -34,11 +34,11 @@ start() {
     echo "NEST Desktop is already running at http://${HOST}:${PORT}."
   else
     if [ -z "${TOKEN}" ]; then
-      echo "NEST Desktop is now running at http://${HOST}:${PORT}/index.html?token=${TOKEN}"
-    else
       echo "NEST Desktop is now running at http://${HOST}:${PORT}."
+    else
+      echo "NEST Desktop is now running at http://${HOST}:${PORT}/index.html?token=${TOKEN}"
     fi
-      echo "Use CTRL + C to stop this service."
+    echo "Use CTRL + C to stop this service."
     python3 -m nest_desktop.app ${HOST} ${PORT} ${TOKEN}
   fi
 }
